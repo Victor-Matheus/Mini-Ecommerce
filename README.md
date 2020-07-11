@@ -1,1 +1,2 @@
-# Mini-Ecommerce feito em JavaScript utilizando a biblioteca ReactJS.
+# Mini-Ecommerce 
+Aplicação construida em JavaScript utilizando a biblioteca ReactJS.
