@@ -12,6 +12,8 @@ const {
     concluirTarefa
 } = require('./controllers/GerenciadorTarefas.js');
 
+const {finalizarCompra, obterCidadesPorEstado} = require('./controllers/MiniEcommerce')
+
 const app = express();
 const port = 3001;
 
@@ -36,5 +38,12 @@ app.put('/gerenciador-tarefas/:id', atualizarTarefa);
 app.delete('/gerenciador-tarefas/:id',removerTarefa);
 //Concluir uma tarefa --> put
 app.put('/gerenciador-tarefas/:id/concluir', concluirTarefa);
+
+//mini-ecommerce
+
+//Atribuir o status de compra finalizada -> post
+app.post('/mini-ecommerce/checkout/finalizar-compra', finalizarCompra);
+//Obter cidades de um determinado estado -> get
+app.get('/mini-ecommerce/estado/:siglaEstado/cidades',obterCidadesPorEstado);
 
 app.listen(port, () => console.log(`Servidor inicializado na porta ${port}.`));
