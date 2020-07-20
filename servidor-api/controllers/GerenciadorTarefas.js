@@ -37,6 +37,8 @@ const listarTarefaId = (req, res) => {
     : res.json(tarefa[0]);
 };
 
+//////////////////////////////////////////////////////////////
+
 const listarTarefas = (req, res) => {
   //escolha de páginação. Caso não haja uma escolha, o default é 1.
   const pagina = req.query["pag"] || 1;
@@ -82,6 +84,8 @@ const listarTarefas = (req, res) => {
   });
 };
 
+//////////////////////////////////////////////////////////////
+
 const cadastrarTarefa = (req, res) => {
   if (!req.body["nome"] && !req.body["concluida"]) {
     console.log(res.status(400).json({ erro: "Requisito inválido." }));
@@ -96,6 +100,8 @@ const cadastrarTarefa = (req, res) => {
   tarefas.push(tarefa);
   res.status(200).json(tarefa);
 };
+
+//////////////////////////////////////////////////////////////
 
 const atualizarTarefa = (req, res) => {
   if (!req.body["nome"] && !req.body["concluida"]) {
@@ -127,6 +133,8 @@ const atualizarTarefa = (req, res) => {
   });
 };
 
+//////////////////////////////////////////////////////////////
+
 const removerTarefa = (req , res) => {
     const id = req.params.id;
     const numTarefas = tarefas.length;
@@ -139,12 +147,39 @@ const removerTarefa = (req , res) => {
     }
 
     res.status(200).json({msg : "Tarefa removida com sucesso."})
-}
+};
+
+//////////////////////////////////////////////////////////////
+
+const concluirTarefa = ( req , res) => {
+
+    const id = req.params.id;
+    let tarefaConcluida = false;
+
+    tarefas = tarefas.map(tarefa => {
+        if(tarefa.id === id){
+            tarefa.concluida = true;
+
+            tarefaConcluida = true;
+        }
+
+        return tarefa;
+    });
+
+    if(!tarefaConcluida){
+        res.status(404).json({erro : "Tarefa não encontrada."});
+    };
+
+    res.status(200).json({msg : "Tarefa concluída!"});
+};
+
+//////////////////////////////////////////////////////////////
 
 module.exports = {
   listarTarefaId,
   listarTarefas,
   cadastrarTarefa,
   atualizarTarefa,
-  removerTarefa
+  removerTarefa,
+  concluirTarefa
 };

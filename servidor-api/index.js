@@ -8,7 +8,8 @@ const {
     listarTarefas,
     cadastrarTarefa,
     atualizarTarefa,
-    removerTarefa
+    removerTarefa,
+    concluirTarefa
 } = require('./controllers/GerenciadorTarefas.js');
 
 const app = express();
@@ -34,6 +35,6 @@ app.put('/gerenciador-tarefas/:id', atualizarTarefa);
 //Remover uma tarefa --> delete
 app.delete('/gerenciador-tarefas/:id',removerTarefa);
 //Concluir uma tarefa --> put
-app.put('/gerenciador-tarefas/:id/concluir', naoImplementado);
+app.put('/gerenciador-tarefas/:id/concluir', concluirTarefa);
 
 app.listen(port, () => console.log(`Servidor inicializado na porta ${port}.`));
