@@ -5,7 +5,10 @@ const cors = require('cors');
 const {
     
     listarTarefaId,
-    listarTarefas
+    listarTarefas,
+    cadastrarTarefa,
+    atualizarTarefa,
+    removerTarefa
 } = require('./controllers/GerenciadorTarefas.js');
 
 const app = express();
@@ -25,11 +28,11 @@ app.get('/gerenciador-tarefas', listarTarefas);
 //Listar uma tarefa por ID --> get
 app.get('/gerenciador-tarefas/:id', listarTarefaId);
 //Cadastrar uma tarefa --> post
-app.post('/gerenciador-tarefas', naoImplementado);
+app.post('/gerenciador-tarefas', cadastrarTarefa);
 //Atualizar uma tarefa --> put
-app.put('/gerenciador-tarefas/:id', naoImplementado);
+app.put('/gerenciador-tarefas/:id', atualizarTarefa);
 //Remover uma tarefa --> delete
-app.delete('/gerenciador-tarefas/:id',naoImplementado);
+app.delete('/gerenciador-tarefas/:id',removerTarefa);
 //Concluir uma tarefa --> put
 app.put('/gerenciador-tarefas/:id/concluir', naoImplementado);
 
