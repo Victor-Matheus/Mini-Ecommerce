@@ -4,7 +4,8 @@ import Menu from './components/menu/Menu';
 import Produtos from './components/produtos/Produtos';
 import Checkout from './components/checkout/Checkout';
 import { checkPropTypes } from 'prop-types';
-
+import ListarProduto from './components/produtos/ListarProdutos';
+ 
 function MiniEcommerce() {
 
   const [carriho, setCarrinho] = React.useState({products : []});

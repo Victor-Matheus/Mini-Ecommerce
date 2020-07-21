@@ -16,12 +16,34 @@ function ListarProdutos () {
         {nome : "TypeScript", preco : "R$ 49,90"},
     ];
 
-    const render = () => {
-        <Card 
-            style={{width = '18rem', margin = '10px', float = 'left'}}>
-            <Card.Img variant="top" src={img} />
-        </Card>
+    function handleComprar (event, produto) {
 
+    }
+
+    const render = () => {
+        let key = 1;
+        const cards = produtos.map(produto => 
+
+            <Card 
+                key={key}
+                data-testId={'card' + key++}
+                style={{width: '18rem', margin: '10px', float: 'left'}}>
+                <Card.Img variant="top" src={img} />
+                <Card.Body className="text-center">
+                    <Card.Title style={{height: '40px'}}>
+                        {produto.nome}
+                    </Card.Title>
+                    <Card.text>
+                        Descrição do produto..
+                    </Card.text>
+                    <Button variant="success" style={{width: '100%'}} onClick={(event) => handleComprar(event, produto)}>
+                        Comprar ({produto.preco})
+                    </Button>
+                </Card.Body>
+            </Card>
+        );
+
+        return cards;
 
     }
 
