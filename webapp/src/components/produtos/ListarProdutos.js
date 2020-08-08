@@ -2,8 +2,9 @@ import React from 'react';
 import img from '../../images/286x180.png';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
+import PropTypes from  'prop-types';
 
-function ListarProdutos () {
+function ListarProdutos (props) {
 
     const produtos = [
         {nome : "Negócios", preco: "R$ 99,90"},
@@ -16,13 +17,14 @@ function ListarProdutos () {
         {nome : "TypeScript", preco : "R$ 49,90"},
     ];
 
-    
+    const [addProduto, setAddProduto] = React.useState({});
 
     function handleComprar (event, produto) {
       event.preventDefault();
       // Adicionar o prduto
+      props.adicionarProduto(produto);
       // Exibir mensagem
-      
+      props.exibirMensagem(produto);
     }
 
     const render = () => {
@@ -47,12 +49,16 @@ function ListarProdutos () {
                 </Card.Body>
             </Card>
         );
-
+         
         return cards;
-
     }
-
+    
     return render();
+}
+
+ListarProdutos.protoTypes = {
+    adicionarProduto: PropTypes.func.isRequired,
+    exibirMensagem: PropTypes.func.isRequired
 }
 
 export default ListarProdutos;

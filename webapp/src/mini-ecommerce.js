@@ -13,10 +13,18 @@ function MiniEcommerce() {
   const [exibirCheckOut, setExibirCheckOut] = React.useState(false);
   const [valorTotal, setValorTotal] = React.useState('0,00');
 
+
+  function adicionarProduto(produto){
+
+  }
+
+
   return (
-    <div>
+    <div className="content">
       <Menu />
-      <Produtos />
+      <Produtos 
+      visivel={exibirProdutos}
+      adicionarProduto={adicionarProduto}/>
       <Checkout />
     </div>
   );

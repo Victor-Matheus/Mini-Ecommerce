@@ -1,0 +1,31 @@
+.content{
+    display: flex;
+    flex-direction: column;
+}
+
+.menu{
+    width: 100%;
+    background-color: gray;
+    box-shadow: 1px 2px 1px darkslategray;
+    z-index: 1;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cart{
+    align-items: center;
+    margin-top: 0.5rem;
+    padding-right: 2rem;
+}
+
+.cart:hover{
+    color: white;
+}
+
+.search{
+    margin-top: 0.5rem;
+    padding-left: 20rem;
+    display: flex;
+    flex-direction: row;
+}
