@@ -1,6 +1,6 @@
 import React from 'react';
 import img from '../../images/286x180.png';
-import Card from 'react-bootstrap/card';
+import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 
 function ListarProdutos () {
@@ -16,8 +16,13 @@ function ListarProdutos () {
         {nome : "TypeScript", preco : "R$ 49,90"},
     ];
 
-    function handleComprar (event, produto) {
+    
 
+    function handleComprar (event, produto) {
+      event.preventDefault();
+      // Adicionar o prduto
+      // Exibir mensagem
+      
     }
 
     const render = () => {
@@ -26,17 +31,17 @@ function ListarProdutos () {
 
             <Card 
                 key={key}
-                data-testId={'card' + key++}
+                data-testid={'card' + key++}
                 style={{width: '18rem', margin: '10px', float: 'left'}}>
                 <Card.Img variant="top" src={img} />
                 <Card.Body className="text-center">
                     <Card.Title style={{height: '40px'}}>
                         {produto.nome}
                     </Card.Title>
-                    <Card.text>
+                    <Card.Text>
                         Descrição do produto..
-                    </Card.text>
-                    <Button variant="success" style={{width: '100%'}} onClick={(event) => handleComprar(event, produto)}>
+                    </Card.Text>
+                    <Button variant="success" style={{width: '100%', justifyContent: 'center'}} onClick={(event) => handleComprar(event, produto)}>
                         Comprar ({produto.preco})
                     </Button>
                 </Card.Body>
