@@ -6,7 +6,6 @@
 .menu{
     width: 100%;
     background-color:#4484CE;
-    box-shadow: 1px 1px 1px darkslategray;
     height: 3.5rem;
     z-index: 1;
     position: fixed;
@@ -18,7 +17,6 @@
 .cart{
     color: #D9D9D9;
     margin-top: 0.8rem;
-    padding-left: 18%;
 }
 
 .cart:hover{
@@ -36,4 +34,15 @@
 .input{
     outline-style: none;
     padding-left: 1rem;
+}
+
+.person-icon{
+    color: #D9D9D9;
+    padding-top: 0.8rem;
+    padding-left: 6rem;
+    padding-right: 7rem;
+}
+
+.person-icon:hover{
+    color:white
 }
