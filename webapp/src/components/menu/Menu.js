@@ -5,12 +5,10 @@ import SearchIcon from "@material-ui/icons/Search";
 function Menu() {
   return (
     <div className="menu">
-      <h1>Menu</h1>
+      <h2 style={{paddingTop: "0.5rem", color: "#D9D9D9"}}>Ecommerce</h2>
       <div className="search">
-        <SearchIcon fontSize="large" />
-        <div>
-          <input st/>
-        </div>
+        <SearchIcon fontSize="large" style={{color: "#D9D9D9"}}/>      
+        <input className="input" placeHolder="Buscar" style={{borderRadius: "0.5rem", border: "1.5px solid #D9D9D9", height: "2rem"}}/>
       </div>
       <div className="cart">
         <ShoppingCartOutlinedIcon fontSize="large" />
